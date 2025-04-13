@@ -20,13 +20,7 @@ document.querySelector("#play").addEventListener("click", function() {
 	video.volume = 1.0;
 	console.log(video.volume * 100 + "%");
 	document.querySelector("#volume").textContent = video.volume * 100 + "%";
-	document.querySelector("#slider").addEventListener("input", function (event) {
-
-		const video = document.querySelector("video");
-		video.volume = parseInt(event.target.value) / 100;
-		document.querySelector("#volume").textContent = video.volume * 100 + "%";
-		
-	});
+	
 });
 
 
@@ -84,7 +78,12 @@ document.querySelector("#slider").addEventListener("input", function (event) {
 	const video = document.querySelector("video");
 	video.volume = parseInt(event.target.value) / 100;
 	document.querySelector("#volume").textContent = video.volume * 100 + "%";
-	
+	console.log(video.volume)
+	document.querySelector("#play").addEventListener("click", function () {
+		video.volume = parseInt(event.target.value) / 100;
+		document.querySelector("#volume").textContent = video.volume * 100 + "%";
+
+	});
 });
 
 
